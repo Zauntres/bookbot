@@ -1,14 +1,10 @@
-
-def read_book():
-    book = "/home/zauntres/bookbot/github.com/zauntres/bookbot/books/frankenstein.txt"
-    with open(book) as f:
-
-        file_contents = f.read()
-
-        print(file_contents)
-
 def main():
+    book_path = "books/frankenstein.txt"
+    text = read_book(book_path)
+    print(text)
 
-    read_book()
+def read_book(path):
+    with open(path) as f:
+       return f.read()
 
 main()
