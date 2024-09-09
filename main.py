@@ -1,3 +1,4 @@
+
 def main():
     book_path = "books/frankenstein.txt"
     text = read_book(book_path)
@@ -6,6 +7,9 @@ def main():
     print (count_words(text), "words found in the dokument")
 #    print(letter_count(text))
     print(sorting_characters(letter_count(text)))
+    for zeichen in sorting_characters(letter_count(text)):
+        number = sorting_characters[zeichen]
+        print(f"The {zeichen} character was found {number} times")
 
 def read_book(path):
     with open(path) as f:
@@ -27,13 +31,25 @@ def letter_count(text):
 
 def sorting_characters(dict):
     sort_out = {}
-    for chars in dict:
-        char_list = chars.split()
-        for letter in char_list:
-            if letter.isalpha():
-                sort_out[char_list[0]] = dict[chars] 
-    rsort = sorted(sort_out, key=lambda sort_out: sort_out)
-    return sort_out
+    sort_out_out = {}
+# Create a new dictionary for alphabetic characters only
+    for chars in dict:   
+        if chars.isalpha():
+            sort_out[chars] = dict[chars] 
+# Sort the dictionary by frequency of occurrence (the values), in descending order
+    rsort = sorted(sort_out.items(), reverse=True, key=lambda item: item[1])
+    #print(rsort)
 
+# Convert the sorted list of tuples back into a dictionary if needed   
+    sort_out_out = {letter: count for letter, count in rsort}
+   
+    return sort_out_out
+
+"""
+    for letter in rsort:
+        sort_out_out = sort_out[letter]
+        print(sort_out_out, "for")
+    print(sort_out)
+""" 
 
 main()
