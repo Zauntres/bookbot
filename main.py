@@ -20,13 +20,15 @@ def letter_count(text):
     for word in words:
         lower_string = word.lower()
         count = 0
-        print(lower_string)
+        #print(lower_string)
         for letter in lower_string:
-            count += 1
-            alphabet.add(letter)
-        characters[letter[0]] = count
-        print(count)
-    print(alphabet)
+            print(letter)
+            if letter in alphabet:
+                count += 1
+            #alphabet.add(letter)
+            characters[letter[0]] = count
+       # print(count)
+   # print(alphabet)
     print(characters)
 
 """
