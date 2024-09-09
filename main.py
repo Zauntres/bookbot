@@ -4,7 +4,7 @@ def main():
     #print(text)
     print(f"--- Begin report of {book_path} ---")
     print (count_words(text), "words found in the dokument")
-    print(letter_count(text))
+#    print(letter_count(text))
     print(sorting_characters(letter_count(text)))
 
 def read_book(path):
@@ -26,14 +26,14 @@ def letter_count(text):
     return characters
 
 def sorting_characters(dict):
-    sort_out = dict
+    sort_out = {}
     for chars in dict:
         char_list = chars.split()
         for letter in char_list:
             if letter.isalpha():
                 sort_out[char_list[0]] = dict[chars] 
     rsort = sorted(sort_out, key=lambda sort_out: sort_out)
-    return rsort
+    return sort_out
 
 
 main()
