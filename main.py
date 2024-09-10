@@ -4,12 +4,14 @@ def main():
     text = read_book(book_path)
     #print(text)
     print(f"--- Begin report of {book_path} ---")
-    print (count_words(text), "words found in the dokument")
-#    print(letter_count(text))
-    print(sorting_characters(letter_count(text)))
-    for zeichen in sorting_characters(letter_count(text)):
-        number = sorting_characters[zeichen]
-        print(f"The {zeichen} character was found {number} times")
+    print (count_words(text), "words found in the dokument ")
+    print()
+#    print(sorting_characters(letter_count(text)))
+    desc_sort = sorting_characters(letter_count(text))
+    for desc in desc_sort:
+        print(f"The '{desc}' character was found {desc_sort[desc]} tmes")
+    
+    print("--- End report ---")
 
 def read_book(path):
     with open(path) as f:
@@ -42,14 +44,8 @@ def sorting_characters(dict):
 
 # Convert the sorted list of tuples back into a dictionary if needed   
     sort_out_out = {letter: count for letter, count in rsort}
-   
+    
     return sort_out_out
 
-"""
-    for letter in rsort:
-        sort_out_out = sort_out[letter]
-        print(sort_out_out, "for")
-    print(sort_out)
-""" 
 
 main()
